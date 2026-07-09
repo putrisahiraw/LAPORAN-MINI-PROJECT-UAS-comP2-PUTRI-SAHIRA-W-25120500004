@@ -7,42 +7,39 @@
 * **Materi:** Pertemuan 12 - Monitoring, Logging, Telemetry, & Observability
 
 ## 📦 Deskripsi Project
-Project ini merupakan eksperimen mandiri untuk menguji aspek *Network Observability* pada aplikasi praktikum dosen dengan menggunakan **Postman** dan **Wireshark**.
+Project ini eksperimen menguji *Network Observability* menggunakan **Postman** dan **Wireshark**.
+
+> **Analogi:** Kayak cek resi paket online. Status "Terkirim" di aplikasi harus dibuktikan dengan cek di gudang/log. Di sini kita cek sampai level paket jaringan.
 
 ## 🛠️ Lingkungan Pengujian
-* **Demo App Target:** `http://127.0.0.1:8088`
+* **Demo App:** `http://127.0.0.1:8088`
 * **Client:** Postman
-* **Network Sniffer:** Wireshark
+* **Sniffer:** Wireshark
 
-## 📈 Skenario Pengujian
-### 1. Skenario Sukses (HTTP 200 OK)
-Berhasil mengembalikan status `200 OK`. Wireshark berhasil menangkap paket JSON.
-
-### 2. Skenario Gagal (HTTP 404 & 400)
-- **404:** Rute salah `/metrics-salah` 
-- **400:** Payload JSON cacat `"scenario": null`
-
-### 3. Integrasi n8n
-Dashboard mencatat **2 kali hit** pada rute n8n.
+## 📈 Hasil Pengujian
+1. **200 OK:** Request berhasil, Wireshark tangkap JSON
+2. **404 Not Found:** Rute `/metrics-salah` ditolak
+3. **400 Bad Request:** Payload `"scenario": null` ditolak
+4. **n8n:** 2 hit tercatat di `/api/automation/inbox`
 
 ## 📷 Dokumentasi Bukti Eksperimen
 
-### 1. Metrics 200 OK
+### 1. HTTP 200 OK
 ![Metrics 200 OK](./matrics%20200ok.png)
 
-### 2. Metrics Salah 404
+### 2. HTTP 404 Not Found
 ![Metrics Salah](./matrics%20salah.png)
 
-### 3. Observasi Log Null 400
+### 3. HTTP 400 Bad Request
 ![Observasi Log Null](./obsevasi%20log%20null.png)
 
-### 4. Wireshark
+### 4. Wireshark Capture
 ![Wireshark](./wiresharks%20p12.png)
 
 ### 5. Capture Scenario
 ![Capture Scenario](./capture%20scenario.png)
 
-### 6. n8n
+### 6. Integrasi n8n
 ![n8n](./n8n.png)
 
 ### 7. Custom Log

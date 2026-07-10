@@ -25,7 +25,7 @@ Project ini eksperimen menguji *Network Observability* menggunakan **Postman** d
 ## 📷 Dokumentasi Bukti Eksperimen
 
 ### 1. HTTP 200 OK
-![Metrics 200 OK](./matrics%20200ok.png)
+![Screenshots/Metrics 200 OK](./matrics%20200ok.png)
 
 ### 2. HTTP 404 Not Found
 ![Metrics Salah](./matrics%20salah.png)
